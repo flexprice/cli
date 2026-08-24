@@ -28,3 +28,25 @@ jobs:
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  docs:
+    runs-on: ubuntu-latest
+    needs: release
+    steps:
+      # The tag push leaves the runner on a detached HEAD at the tag; docs
+      # get committed onto main, not onto the (supposed-to-stay-immutable) tag.
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Generate command reference
+        run: go run ./tools/gendocs
+
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: 'docs: regenerate command reference for release [skip ci]'
+          file_pattern: 'docs/*.md'
