@@ -1,7 +1,7 @@
 ---
 layer: spec
 owns:
-  - "cli/internal/spec/**"
+  - "internal/spec/**"
 ---
 
 # Spec Layer

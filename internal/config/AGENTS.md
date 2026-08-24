@@ -1,7 +1,7 @@
 ---
 layer: config
 owns:
-  - "cli/internal/config/**"
+  - "internal/config/**"
 ---
 
 # Config Layer

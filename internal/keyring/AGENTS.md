@@ -1,7 +1,7 @@
 ---
 layer: keyring
 owns:
-  - "cli/internal/keyring/**"
+  - "internal/keyring/**"
 ---
 
 # Keyring Layer

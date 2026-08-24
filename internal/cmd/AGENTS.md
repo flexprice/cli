@@ -1,7 +1,7 @@
 ---
 layer: cmd
 owns:
-  - "cli/internal/cmd/**"
+  - "internal/cmd/**"
 ---
 
 # Cmd Layer

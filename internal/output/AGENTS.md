@@ -1,7 +1,7 @@
 ---
 layer: output
 owns:
-  - "cli/internal/output/**"
+  - "internal/output/**"
 ---
 
 # Output Layer

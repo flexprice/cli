@@ -1,7 +1,7 @@
 ---
 layer: constitution
 owns:
-  - "cli/**"
+  - "**"
 ---
 
 # Flexprice CLI — Constitution

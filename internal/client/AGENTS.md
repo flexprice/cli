@@ -1,7 +1,7 @@
 ---
 layer: client
 owns:
-  - "cli/internal/client/**"
+  - "internal/client/**"
 ---
 
 # Client Layer
