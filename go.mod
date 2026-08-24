@@ -1,6 +1,6 @@
 module github.com/flexprice/cli
 
-go 1.25
+go 1.25.0
 
 require (
 	github.com/BurntSushi/toml v1.6.0
@@ -54,7 +54,7 @@ require (
 	github.com/oasdiff/yaml v0.1.1 // indirect
 	github.com/oasdiff/yaml3 v0.0.14 // indirect
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2 // indirect
-	golang.org/x/sys v0.33.0 // indirect
-	golang.org/x/term v0.26.0
+	golang.org/x/sys v0.47.0 // indirect
+	golang.org/x/term v0.45.0
 	golang.org/x/text v0.23.0 // indirect
 )
