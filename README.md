@@ -260,16 +260,14 @@ walks through the request lifecycle end to end. The two most common
 maintenance tasks — adding a generated command and adding a hand-written
 one — are walked through in [guides/](guides/).
 
-Build and test locally with the standard Go toolchain from inside `cli/`:
+Build and test locally with the standard Go toolchain:
 
     go build ./...
     go test -race ./...
 
 ## Contributing
 
-**Source of truth is `flexprice/flexprice` at `cli/`.** This repository is a
-release mirror — please open pull requests against the monorepo. Issues here
-are welcome.
+Pull requests and issues are welcome directly against this repository.
 
 ## License
 
