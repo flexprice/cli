@@ -2,30 +2,35 @@
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/flexprice/cli)](https://github.com/flexprice/cli/releases)
+[![CI](https://github.com/flexprice/cli/actions/workflows/ci.yml/badge.svg)](https://github.com/flexprice/cli/actions/workflows/ci.yml)
 
 Usage-based billing from your terminal — send events, inspect how they metered,
 and drive the Flexprice API without leaving the command line.
 
-    brew install flexprice/tap/flexprice
+**With the CLI, you can:**
+
+- Send usage events and inspect how they were metered
+- Manage customers, subscriptions, invoices, and every other billing resource without leaving the terminal
+- Script against a stable JSON output contract and documented exit codes
+- Reach any API endpoint through the `get`/`post`/`delete` escape hatch, even ones without a named command
+
+    go install github.com/flexprice/cli@latest
     flexprice init
 
 ## Install
 
-**Homebrew (macOS, Linux)**
+**Download a release (macOS, Linux, Windows)**
 
-    brew install flexprice/tap/flexprice
-
-**Install script (macOS, Linux)**
-
-    curl -fsSL https://flexprice.io/install.sh | sh
+Grab the archive for your platform from the [latest release](https://github.com/flexprice/cli/releases/latest),
+extract it, and put the `flexprice` binary on your `PATH`.
 
 **Go**
 
     go install github.com/flexprice/cli@latest
 
-**Upgrading:** `brew upgrade flexprice/tap/flexprice`, re-run the install
-script, or `go install github.com/flexprice/cli@latest` again — all three
-just replace the binary in place; your config and stored keys are untouched.
+**Upgrading:** download the new release and replace the binary, or run
+`go install github.com/flexprice/cli@latest` again — either way your config
+and stored keys are untouched.
 
 ## Quickstart
 
@@ -270,7 +275,9 @@ release):
 
 ## Contributing
 
-Pull requests and issues are welcome directly against this repository.
+Pull requests and issues are welcome directly against this repository — see
+[CONTRIBUTING.md](CONTRIBUTING.md) for dev setup, testing, and linting, and
+[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for community standards.
 
 ## License
 
