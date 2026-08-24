@@ -260,10 +260,13 @@ walks through the request lifecycle end to end. The two most common
 maintenance tasks — adding a generated command and adding a hand-written
 one — are walked through in [guides/](guides/).
 
-Build and test locally with the standard Go toolchain:
+Build and test locally with the standard Go toolchain, or via `make` —
+`make help` lists every target (build, test, lint, docs, smoke/e2e suites,
+release):
 
     go build ./...
     go test -race ./...
+    make check   # build, vet, test, lint — what CI runs
 
 ## Contributing
 
