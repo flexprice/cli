@@ -1,7 +1,6 @@
 package spec
 
 import (
-	"encoding/json"
 	"testing"
 )
 
@@ -132,13 +131,4 @@ func TestApplyPaging_DoesNotOverrideAnExplicitValue(t *testing.T) {
 	if got := req.Body.(map[string]any)["limit"]; got != 5 {
 		t.Errorf("limit = %v, want the caller value 5 preserved", got)
 	}
-}
-
-func mustJSON(t *testing.T, v any) []byte {
-	t.Helper()
-	b, err := json.Marshal(v)
-	if err != nil {
-		t.Fatal(err)
-	}
-	return b
 }
