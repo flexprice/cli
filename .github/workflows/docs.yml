@@ -1,0 +1,29 @@
+name: Docs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'internal/cmd/**'
+      - 'spec/**'
+
+permissions:
+  contents: write
+
+jobs:
+  gendocs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Generate command reference
+        run: go run ./tools/gendocs
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'docs: regenerate command reference [skip ci]'
+          file_pattern: 'docs/*.md'
