@@ -25,6 +25,25 @@ archives:
 checksum:
   name_template: checksums.txt
 
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^chore:'
+      - '^docs:'
+      - '^ci:'
+      - '^test:'
+      - '^Merge '
+  groups:
+    - title: Features
+      regexp: '^feat(\(.+\))?:'
+      order: 0
+    - title: Bug fixes
+      regexp: '^fix(\(.+\))?:'
+      order: 1
+    - title: Other Changes
+      order: 999
+
 # Homebrew publishing is disabled until github.com/flexprice/homebrew-tap
 # exists. Once it does, uncomment this block — no other changes needed,
 # goreleaser already targets the repo it runs in for the GitHub release.
