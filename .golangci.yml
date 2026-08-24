@@ -1,13 +1,21 @@
+version: "2"
+
 run:
   timeout: 5m
 
 linters:
-  disable-all: true
+  default: none
   enable:
     - govet
     - staticcheck
     - errcheck
     - unused
     - ineffassign
+  exclusions:
+    presets:
+      - std-error-handling
+
+formatters:
+  enable:
     - gofmt
     - goimports

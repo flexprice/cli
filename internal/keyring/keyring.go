@@ -120,6 +120,6 @@ func withTimeout[T any](timeout time.Duration, op string, fn func() (T, error)) 
 		var zero T
 		return zero, fmt.Errorf(
 			"OS keychain %s timed out after %s; it may be waiting on an OS unlock/consent prompt.\n"+
-				"Set FLEXPRICE_KEY_BACKEND=file to bypass the OS keychain.", op, timeout)
+				"Set FLEXPRICE_KEY_BACKEND=file to bypass the OS keychain", op, timeout)
 	}
 }

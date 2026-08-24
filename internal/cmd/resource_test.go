@@ -120,7 +120,8 @@ func TestSplitEditorCommand_SplitsCommandAndArgs(t *testing.T) {
 		if gotCmd != tt.wantCmd {
 			t.Errorf("splitEditorCommand(%q) cmd = %q, want %q", tt.raw, gotCmd, tt.wantCmd)
 		}
-		if !reflect.DeepEqual(gotArgs, tt.wantArgs) && !(len(gotArgs) == 0 && len(tt.wantArgs) == 0) {
+		argsMatch := reflect.DeepEqual(gotArgs, tt.wantArgs) || (len(gotArgs) == 0 && len(tt.wantArgs) == 0)
+		if !argsMatch {
 			t.Errorf("splitEditorCommand(%q) args = %v, want %v", tt.raw, gotArgs, tt.wantArgs)
 		}
 	}
