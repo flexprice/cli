@@ -29,11 +29,12 @@ changelog:
   sort: asc
   filters:
     exclude:
-      - '^chore:'
-      - '^docs:'
-      - '^ci:'
-      - '^test:'
+      - '^chore(\(.+\))?:'
+      - '^docs(\(.+\))?:'
+      - '^ci(\(.+\))?:'
+      - '^test(\(.+\))?:'
       - '^Merge '
+      - '^merge:'
   groups:
     - title: Features
       regexp: '^feat(\(.+\))?:'
