@@ -23,7 +23,7 @@ jobs:
       - name: Generate command reference
         run: go run ./tools/gendocs
 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: 'docs: regenerate command reference [skip ci]'
           file_pattern: 'docs/*.md'
