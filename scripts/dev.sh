@@ -3,8 +3,8 @@
 # Builds the CLI and puts a `flexprice` alias on it, so you can try the real
 # binary without installing it.
 #
-#   source cli/scripts/dev.sh          # sandboxed home (default)
-#   source cli/scripts/dev.sh --real   # your actual ~/.flexprice and keychain
+#   source scripts/dev.sh          # sandboxed home (default)
+#   source scripts/dev.sh --real   # your actual ~/.flexprice and keychain
 #
 # The sandbox is the default deliberately. `login`, `whoami` and `init` reach
 # the real OS keychain regardless of which API they point at, and an unattended
@@ -14,7 +14,7 @@
 
 if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     echo "This script must be sourced, not executed — an alias cannot outlive a subshell:"
-    echo "    source cli/scripts/dev.sh"
+    echo "    source scripts/dev.sh"
     exit 1
 fi
 
@@ -27,7 +27,7 @@ _fp_dev() {
     cli_dir="$(dirname "$script_dir")"
 
     echo "Building…"
-    if ! (cd "$cli_dir" && go build -o bin/flexprice .); then
+    if ! (cd "$cli_dir" && go build -o bin/flexprice ./cmd/flexprice); then
         echo "✗ build failed"
         return 1
     fi

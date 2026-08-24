@@ -8,7 +8,7 @@ import (
 )
 
 // Errors raised before any HTTP call previously all exited 1, so a script could
-// not tell "needs login" from any other failure. Found by cli/scripts/smoke.sh.
+// not tell "needs login" from any other failure. Found by scripts/smoke.sh.
 func TestResolveContext_ErrorsCarryExitCodes(t *testing.T) {
 	cases := []struct {
 		name string

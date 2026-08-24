@@ -73,7 +73,7 @@ The API has 198 callable operations. Generating 198 Go files — one per
 command — was considered and rejected: it means a build step nobody remembers
 to run, generated code nobody reviews line-by-line, and a repository that grows
 by hundreds of files for every new endpoint. Instead, the OpenAPI document is
-embedded in the binary via `go:embed` (`cli/spec/embed.go`) and parsed once per
+embedded in the binary via `go:embed` (`spec/embed.go`) and parsed once per
 invocation (`internal/spec.Load`, measured at 48–73ms for the current spec in
 the implementation spike). The command tree cobra sees is built by walking the
 parsed document against `commands.yaml` at startup, not by reading generated

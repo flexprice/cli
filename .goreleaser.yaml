@@ -7,7 +7,7 @@ before:
 
 builds:
   - id: flexprice
-    main: .
+    main: ./cmd/flexprice
     binary: flexprice
     env:
       - CGO_ENABLED=0

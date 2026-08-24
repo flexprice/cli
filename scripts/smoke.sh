@@ -3,9 +3,9 @@
 # Orchestrated smoke suite for the Flexprice CLI, modelled on
 # integration-testing-suite/go but driving the binary rather than the SDK.
 #
-#   cli/scripts/smoke.sh                      # phases 1-4, no server needed
-#   FLEXPRICE_API_KEY=sk_... cli/scripts/smoke.sh
-#   FLEXPRICE_API_KEY=sk_... FLEXPRICE_SMOKE_WRITE=1 cli/scripts/smoke.sh
+#   scripts/smoke.sh                      # phases 1-4, no server needed
+#   FLEXPRICE_API_KEY=sk_... scripts/smoke.sh
+#   FLEXPRICE_API_KEY=sk_... FLEXPRICE_SMOKE_WRITE=1 scripts/smoke.sh
 #
 # Phases 1-4 assert the CLI's own contract — stream separation, exit codes,
 # help structure, safety refusals — none of which needs an API, so the suite is
@@ -182,7 +182,7 @@ echo "Started:  $(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
 phase "PHASE 1: BUILD & DISCOVERY"
 
-if (cd "$CLI_DIR" && go build -o bin/flexprice . 2>/dev/null); then
+if (cd "$CLI_DIR" && go build -o bin/flexprice ./cmd/flexprice 2>/dev/null); then
     pass "build"
 else
     fail "build" "go build failed — nothing else can run"
@@ -406,8 +406,8 @@ fi
 if [ -z "$API_KEY" ]; then
     echo
     echo "Live phases skipped. To run them:"
-    echo "    FLEXPRICE_API_KEY=sk_... cli/scripts/smoke.sh"
-    echo "    FLEXPRICE_API_KEY=sk_... FLEXPRICE_SMOKE_WRITE=1 cli/scripts/smoke.sh   # also creates/deletes a customer"
+    echo "    FLEXPRICE_API_KEY=sk_... scripts/smoke.sh"
+    echo "    FLEXPRICE_API_KEY=sk_... FLEXPRICE_SMOKE_WRITE=1 scripts/smoke.sh   # also creates/deletes a customer"
 fi
 
 echo

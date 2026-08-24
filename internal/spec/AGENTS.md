@@ -130,5 +130,5 @@ Load()                         parse the embedded OpenAPI document
 ## Related layers
 
 - `internal/cmd` — the only consumer of `Registry`/`BuildRequest`/`Skeleton`
-- `cli/spec/commands.yaml` — the curated map this package validates
-- `cli/spec/openapi.json` — the embedded spec, synced via `make sync-cli-spec`
+- `spec/commands.yaml` — the curated map this package validates
+- `spec/openapi.json` — the embedded spec, synced via `make sync-cli-spec`

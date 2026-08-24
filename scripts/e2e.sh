@@ -3,9 +3,9 @@
 # End-to-end lifecycle suite for the Flexprice CLI, driving the real binary
 # against the India region.
 #
-#   cli/scripts/e2e.sh                 # prompts for the API key
-#   FLEXPRICE_API_KEY=sk_... cli/scripts/e2e.sh
-#   cli/scripts/e2e.sh --dry-run       # print every command, call nothing
+#   scripts/e2e.sh                 # prompts for the API key
+#   FLEXPRICE_API_KEY=sk_... scripts/e2e.sh
+#   scripts/e2e.sh --dry-run       # print every command, call nothing
 #
 # Builds the full object graph — feature → plan → price → entitlement →
 # coupon → customer → subscription → wallet → events → invoice — verifies each
@@ -198,7 +198,7 @@ echo "Started:  $(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
 phase "PHASE 0: PREFLIGHT"
 
-if (cd "$CLI_DIR" && go build -o bin/flexprice . 2>/dev/null); then
+if (cd "$CLI_DIR" && go build -o bin/flexprice ./cmd/flexprice 2>/dev/null); then
     pass "build CLI"
 else
     fail "build CLI" "go build failed"

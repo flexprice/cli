@@ -5,10 +5,10 @@ BIN := bin/flexprice
         smoke e2e release-snapshot release clean check help
 
 build: ## Build the flexprice binary into bin/
-	go build -o $(BIN) .
+	go build -o $(BIN) ./cmd/flexprice
 
 install: ## Install flexprice to $GOBIN (or $GOPATH/bin)
-	go install .
+	go install ./cmd/flexprice
 
 run: build ## Build and run the binary, e.g. make run ARGS="customers list"
 	$(BIN) $(ARGS)

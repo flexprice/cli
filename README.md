@@ -14,7 +14,7 @@ metered, and drive the Flexprice API without leaving the command line.
 - Script against a stable JSON output contract and documented exit codes
 - Reach any API endpoint through the `get`/`post`/`delete` escape hatch, even ones without a named command
 
-    go install github.com/flexprice/cli@latest
+    go install github.com/flexprice/cli/cmd/flexprice@latest
     flexprice init
 
 ## Install
@@ -26,10 +26,10 @@ extract it, and put the `flexprice` binary on your `PATH`.
 
 **Go**
 
-    go install github.com/flexprice/cli@latest
+    go install github.com/flexprice/cli/cmd/flexprice@latest
 
 **Upgrading:** download the new release and replace the binary, or run
-`go install github.com/flexprice/cli@latest` again. Either way, your config
+`go install github.com/flexprice/cli/cmd/flexprice@latest` again. Either way, your config
 and stored keys are untouched.
 
 ## Quickstart

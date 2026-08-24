@@ -1,7 +1,7 @@
 # Adding or renaming a curated command
 
 The CLI does not generate command names from the API spec — it resolves them
-through `cli/spec/commands.yaml`, a hand-maintained map from `resource
+through `spec/commands.yaml`, a hand-maintained map from `resource
 action` to an OpenAPI `operationId`. This is the single most common
 maintenance task in this repository: the backend adds an endpoint, and
 someone needs to give it a real name.
@@ -36,10 +36,10 @@ on this file.
    default:
 
    ```bash
-   cd cli && go run ./tools/bootstrap-commands | grep -A2 -B2 <partial-name>
+   go run ./tools/bootstrap-commands | grep -A2 -B2 <partial-name>
    ```
 
-2. Open `cli/spec/commands.yaml` and find (or create) the resource block for
+2. Open `spec/commands.yaml` and find (or create) the resource block for
    the right resource name — match the existing pattern of domain nouns
    (`customers`, `invoices`, `subscriptions`), not the raw API tag.
 
@@ -65,7 +65,7 @@ on this file.
 5. Run the registry's validation test:
 
    ```bash
-   cd cli && go test ./internal/spec/ -run TestRegistry -v
+   go test ./internal/spec/ -run TestRegistry -v
    ```
 
    `TestRegistry_EveryOperationIsAccountedFor` will fail if you introduced a
@@ -76,7 +76,7 @@ on this file.
 6. Verify the actual command works end to end:
 
    ```bash
-   cd cli && go build -o bin/flexprice . && ./bin/flexprice <resource> --help
+   go build -o bin/flexprice ./cmd/flexprice && ./bin/flexprice <resource> --help
    ```
 
 ## When to exclude an operation instead
