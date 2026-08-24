@@ -4,8 +4,8 @@
 [![Release](https://img.shields.io/github/v/release/flexprice/cli)](https://github.com/flexprice/cli/releases)
 [![CI](https://github.com/flexprice/cli/actions/workflows/ci.yml/badge.svg)](https://github.com/flexprice/cli/actions/workflows/ci.yml)
 
-Usage-based billing from your terminal — send events, inspect how they metered,
-and drive the Flexprice API without leaving the command line.
+Usage-based billing from your terminal. Send events, inspect how they were
+metered, and drive the Flexprice API without leaving the command line.
 
 **With the CLI, you can:**
 
@@ -29,7 +29,7 @@ extract it, and put the `flexprice` binary on your `PATH`.
     go install github.com/flexprice/cli@latest
 
 **Upgrading:** download the new release and replace the binary, or run
-`go install github.com/flexprice/cli@latest` again — either way your config
+`go install github.com/flexprice/cli@latest` again. Either way, your config
 and stored keys are untouched.
 
 ## Quickstart
@@ -99,7 +99,7 @@ See everything you can act on:
 ## Commands at a glance
 
 197 commands across 34 resources are resolved at startup from the embedded
-OpenAPI spec — nothing below is committed generated code (see
+OpenAPI spec. Nothing below is committed generated code (see
 [ARCHITECTURE.md](ARCHITECTURE.md)). A handful of commands don't map to a
 single API operation and are hand-written instead:
 
@@ -111,7 +111,7 @@ single API operation and are hand-written instead:
 | `flexprice env list` | List environments in your tenant |
 | `flexprice config list` / `flexprice config use <profile>` | Manage stored profiles |
 | `flexprice resources` | List every resource and its actions |
-| `flexprice <resource> <action>` | The generated surface — `customers list`, `invoices finalize`, ... |
+| `flexprice <resource> <action>` | The generated surface, e.g. `customers list`, `invoices finalize` |
 | `flexprice get` / `post` / `delete <path>` | Raw HTTP escape hatch for anything not covered by a resource command |
 | `flexprice open dashboard` / `flexprice open webhooks` | Open the web dashboard or webhook portal |
 | `flexprice version` | Print the CLI version and embedded spec build |
@@ -126,8 +126,8 @@ Every resource in the API is a top-level command, grouped by action:
     flexprice invoices finalize inv_01K...
     flexprice subscriptions cancel sub_01K...
 
-For a request body too deep to express as flags — creating a subscription, for
-example — open it in your editor with the required fields pre-filled:
+For a request body too deep to express as flags (creating a subscription, for
+example), open it in your editor with the required fields pre-filled:
 
     flexprice subscriptions create --edit
 
@@ -154,12 +154,12 @@ which cannot:
 
 Destructive actions (`delete`, `void`, `cancel`, `terminate`, `archive`,
 `finalize`) ask for confirmation with an arrow-key prompt; `--force` skips it.
-Off a terminal the command **refuses** rather than proceeding — see
-[Running non-interactively](#running-non-interactively).
+Off a terminal, the command **refuses** rather than proceeding (see
+[Running non-interactively](#running-non-interactively)).
 
 Reads show a spinner while the request is in flight, and table output carries a
-footer naming which profile and region actually served it — the fastest way to
-catch "am I pointed where I think I am":
+footer naming which profile and region actually served it. That's the fastest
+way to catch "am I pointed where I think I am":
 
     $ flexprice customers list
     ID                NAME          STATUS    CREATED_AT
@@ -190,7 +190,7 @@ hatch:
 
 ## Authentication
 
-An API key belongs to exactly one environment — there is no `--environment`
+An API key belongs to exactly one environment. There is no `--environment`
 flag, because the key itself already determines it. Switching environments
 means switching profiles:
 
@@ -200,7 +200,7 @@ means switching profiles:
     flexprice logout -p production           # remove a profile and its key
 
 `flexprice env list` shows every environment in your tenant, but the CLI
-cannot tell you which one your active key belongs to — the API itself does not
+cannot tell you which one your active key belongs to: the API itself does not
 expose that.
 
 ## Output & scripting
@@ -208,8 +208,8 @@ expose that.
     flexprice customers list --output json > customers.json
 
 Data always goes to stdout; progress messages, warnings, and footers always go
-to stderr — redirecting stdout never mixes the two. Exit codes are stable and
-safe to script against:
+to stderr, so redirecting stdout never mixes the two. Exit codes are stable
+and safe to script against:
 
 | Code | Meaning |
 |---|---|
@@ -240,8 +240,8 @@ Destructive commands (`delete`, `void`, `cancel`, `terminate`, `archive`,
 
     flexprice customers delete cust_123 --force
 
-Without it, a non-interactive run **fails rather than proceeding** — the CLI will
-not destroy something because nobody could be asked.
+Without it, a non-interactive run **fails rather than proceeding**: the CLI
+will not destroy something because nobody could be asked.
 
 ## Configuration
 
@@ -260,22 +260,22 @@ published at https://docs.flexprice.io/cli.
 ## For maintainers
 
 This CLI dispatches commands at runtime from an embedded OpenAPI spec rather
-than generating Go source per command — [ARCHITECTURE.md](ARCHITECTURE.md)
+than generating Go source per command; [ARCHITECTURE.md](ARCHITECTURE.md)
 walks through the request lifecycle end to end. The two most common
-maintenance tasks — adding a generated command and adding a hand-written
-one — are walked through in [guides/](guides/).
+maintenance tasks (adding a generated command and adding a hand-written one)
+are walked through in [guides/](guides/).
 
-Build and test locally with the standard Go toolchain, or via `make` —
+Build and test locally with the standard Go toolchain, or via `make`.
 `make help` lists every target (build, test, lint, docs, smoke/e2e suites,
 release):
 
     go build ./...
     go test -race ./...
-    make check   # build, vet, test, lint — what CI runs
+    make check   # build, vet, test, lint, same as CI
 
 ## Contributing
 
-Pull requests and issues are welcome directly against this repository — see
+Pull requests and issues are welcome directly against this repository. See
 [CONTRIBUTING.md](CONTRIBUTING.md) for dev setup, testing, and linting, and
 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for community standards.
 
