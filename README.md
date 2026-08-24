@@ -28,6 +28,15 @@ extract it, and put the `flexprice` binary on your `PATH`.
 
     go install github.com/flexprice/cli/cmd/flexprice@latest
 
+`go install` places the binary in `$(go env GOPATH)/bin` (commonly
+`~/go/bin`) — if that directory isn't on your `PATH`, the install succeeds
+silently but `flexprice` comes back "command not found" afterward. Check
+and fix it with:
+
+    echo $PATH | tr ':' '\n' | grep "$(go env GOPATH)/bin"   # prints nothing if missing
+    echo 'export PATH="$(go env GOPATH)/bin:$PATH"' >> ~/.zshrc   # or ~/.bashrc
+    source ~/.zshrc
+
 **Upgrading:** download the new release and replace the binary, or run
 `go install github.com/flexprice/cli/cmd/flexprice@latest` again. Either way, your config
 and stored keys are untouched.
