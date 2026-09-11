@@ -14,14 +14,14 @@ metered, and drive the Flexprice API without leaving the command line.
 - Script against a stable JSON output contract and documented exit codes
 - Reach any API endpoint through the `get`/`post`/`delete` escape hatch, even ones without a named command
 
-    curl -fsSL https://raw.githubusercontent.com/flexprice/cli/main/install.sh | sh
+    curl -fsSL https://cli.flexprice.io | sh
     flexprice init
 
 ## Install
 
 **Install script (macOS, Linux)**
 
-    curl -fsSL https://raw.githubusercontent.com/flexprice/cli/main/install.sh | sh
+    curl -fsSL https://cli.flexprice.io | sh
 
 Two environment variables tune it:
 
