@@ -73,7 +73,7 @@ func NewRootCommand(version string) *cobra.Command {
 		out := cmd.ErrOrStderr()
 		printInitBanner(out, g)
 		fmt.Fprintf(out, "  Get started   %s\n", style.Accent("flexprice init"))
-		fmt.Fprintf(out, "  Docs          %s\n", "https://docs.flexprice.io/cli")
+		fmt.Fprintf(out, "  Docs          %s\n", "https://docs.flexprice.io/docs/cli/overview")
 		return nil
 	}
 

@@ -274,7 +274,7 @@ invocation or for CI.
     flexprice <resource> --help
 
 lists every action for a resource; a generated reference for every command is
-published at https://docs.flexprice.io/cli.
+published at https://docs.flexprice.io/docs/cli/overview.
 
 ## For maintainers
 
