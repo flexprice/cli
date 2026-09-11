@@ -42,6 +42,20 @@ jobs:
         with:
           version: v2.13.1
 
+  install-script:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Lint install.sh
+        run: shellcheck --shell=sh install.sh
+
+      - name: Run install.sh against the latest release
+        run: |
+          FLEXPRICE_INSTALL_DIR="$RUNNER_TEMP/bin" sh install.sh
+          "$RUNNER_TEMP/bin/flexprice" --version
+
   codeql:
     runs-on: ubuntu-latest
     permissions:
