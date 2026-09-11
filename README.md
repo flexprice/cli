@@ -14,15 +14,25 @@ metered, and drive the Flexprice API without leaving the command line.
 - Script against a stable JSON output contract and documented exit codes
 - Reach any API endpoint through the `get`/`post`/`delete` escape hatch, even ones without a named command
 
-    go install github.com/flexprice/cli/cmd/flexprice@latest
+    curl -fsSL https://raw.githubusercontent.com/flexprice/cli/main/install.sh | sh
     flexprice init
 
 ## Install
 
+**Install script (macOS, Linux)**
+
+    curl -fsSL https://raw.githubusercontent.com/flexprice/cli/main/install.sh | sh
+
+Two environment variables tune it:
+
+    FLEXPRICE_VERSION=v1.0.1 sh install.sh           # pin a release instead of latest
+    FLEXPRICE_INSTALL_DIR=~/bin sh install.sh        # choose the install directory
+
 **Download a release (macOS, Linux, Windows)**
 
 Grab the archive for your platform from the [latest release](https://github.com/flexprice/cli/releases/latest),
-extract it, and put the `flexprice` binary on your `PATH`.
+extract it, and put the `flexprice` binary on your `PATH`. This is the route
+for Windows, which the install script doesn't cover.
 
 **Go**
 
@@ -37,9 +47,9 @@ and fix it with:
     echo 'export PATH="$(go env GOPATH)/bin:$PATH"' >> ~/.zshrc   # or ~/.bashrc
     source ~/.zshrc
 
-**Upgrading:** download the new release and replace the binary, or run
-`go install github.com/flexprice/cli/cmd/flexprice@latest` again. Either way, your config
-and stored keys are untouched.
+**Upgrading:** re-run the install script, download the new release and
+replace the binary, or run `go install github.com/flexprice/cli/cmd/flexprice@latest`
+again. Whichever you pick, your config and stored keys are untouched.
 
 ## Quickstart
 
