@@ -10,7 +10,9 @@ import (
 	"os/exec"
 	"path/filepath"
 	"runtime"
+
 	"github.com/spf13/cobra"
+
 	"github.com/flexprice/cli/internal/update"
 )
 
@@ -66,7 +68,7 @@ func withV(v string) string {
 func newUpdateCommand(g *Globals, version string, c *update.Checker, scriptURL string) *cobra.Command {
 	var check bool
 	cmd := &cobra.Command{
-		Use: "update",
+		Use:   "update",
 		Short: "Update the CLI to the latest release",
 		Long: "Check GitHub for a newer release and, if there is one, run the install " +
 			"script (" + installScriptURL + ") to replace this binary in place.\n\n" +

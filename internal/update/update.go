@@ -13,9 +13,9 @@ import (
 )
 
 const (
-	ReleasesURL = "https://github.com/flexprice/cli/releases"
+	ReleasesURL   = "https://github.com/flexprice/cli/releases"
 	CheckInterval = 24 * time.Hour
-	fetchTimeout = 3 * time.Second
+	fetchTimeout  = 3 * time.Second
 )
 
 type Checker struct {
