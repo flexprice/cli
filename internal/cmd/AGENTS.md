@@ -26,6 +26,7 @@ hand-written (`login`, `whoami`, `open`, ...) and spec-dispatched
 | `config.go` | `config list`/`config use` |
 | `init.go` | `init` — guided first run |
 | `misc.go` | `open`, `version` |
+| `update.go` | `update`, `wantsUpdateNotice`, `printUpdateNotice` |
 
 ## Startup wiring order
 
