@@ -73,6 +73,7 @@ flexprice [flags]
 * [flexprice tax-associations](flexprice_tax-associations.md)	 - Which tax rates apply to which entities
 * [flexprice tax-rates](flexprice_tax-rates.md)	 - Tax rates available to apply
 * [flexprice tenants](flexprice_tenants.md)	 - Your top-level account
+* [flexprice update](flexprice_update.md)	 - Update the CLI to the latest release
 * [flexprice users](flexprice_users.md)	 - People with access to your tenant
 * [flexprice version](flexprice_version.md)	 - Print the CLI version and embedded spec build
 * [flexprice wallets](flexprice_wallets.md)	 - Prepaid credit balances held by a customer

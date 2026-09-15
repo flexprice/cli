@@ -15,6 +15,7 @@ import (
 	"github.com/flexprice/cli/internal/spec"
 	"github.com/flexprice/cli/internal/style"
 	"github.com/flexprice/cli/internal/ui"
+	"github.com/flexprice/cli/internal/update"
 )
 
 // Created per root: pflag writes flag defaults into the bound pointer at
@@ -53,6 +54,7 @@ func NewRootCommand(version string) *cobra.Command {
 	}
 
 	bindGlobals(root.PersistentFlags(), g)
+	checker := update.NewChecker()
 
 	// Flags are not populated until Execute() parses them, so this hook is the
 	// first point where g's fields are real.
@@ -61,6 +63,9 @@ func NewRootCommand(version string) *cobra.Command {
 			style.Disable()
 		}
 		g.UI = ui.FromEnv(g.Quiet, g.NoInput, !g.NoColor)
+		if wantsUpdateNotice(cmd, g, version, term.IsTerminal(int(os.Stderr.Fd()))) {
+			printUpdateNotice(cmd.Context(), g, version, checker)
+		}
 		return nil
 	}
 
@@ -86,6 +91,7 @@ func NewRootCommand(version string) *cobra.Command {
 		newConfigCommand(g),
 		newOpenCommand(g, version),
 		newVersionCommand(g, version),
+		newUpdateCommand(g, version, checker, installScriptURL),
 	)
 
 	// Must run before any command carrying a GroupID reaches Execute: cobra
