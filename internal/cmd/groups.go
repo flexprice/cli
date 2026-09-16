@@ -88,7 +88,7 @@ var resourceGroups = map[string]resourceEntry{
 var builtinGroups = map[string]string{
 	"init": groupSetup, "login": groupSetup, "logout": groupSetup,
 	"whoami": groupSetup, "env": groupSetup, "config": groupSetup,
-	"open": groupSetup, "version": groupSetup,
+	"open": groupSetup, "version": groupSetup, "update": groupSetup,
 
 	"get": groupAdvanced, "post": groupAdvanced, "delete": groupAdvanced,
 	"resources": groupAdvanced,

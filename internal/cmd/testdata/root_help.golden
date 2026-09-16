@@ -13,6 +13,7 @@ Setup
   login                   Store credentials for a region and environment
   logout                  Remove a stored profile and its key
   open                    Open Flexprice in your browser
+  update                  Update the CLI to the latest release
   version                 Print the CLI version and embedded spec build
   whoami                  Show the active profile, environment and key backend
 

@@ -47,9 +47,11 @@ and fix it with:
     echo 'export PATH="$(go env GOPATH)/bin:$PATH"' >> ~/.zshrc   # or ~/.bashrc
     source ~/.zshrc
 
-**Upgrading:** re-run the install script, download the new release and
-replace the binary, or run `go install github.com/flexprice/cli/cmd/flexprice@latest`
-again. Whichever you pick, your config and stored keys are untouched.
+**Upgrading:** the CLI checks GitHub once a day and prints a notice when a
+newer release exists. Run `flexprice update` to replace the binary in place
+(`--check` only reports). Set `FLEXPRICE_NO_UPDATE=1` to silence the notice.
+On Windows, download the release by hand or re-run `go install`. Your config
+and stored keys are untouched either way.
 
 ## Quickstart
 
