@@ -39,3 +39,4 @@ flexprice update [flags]
 ### SEE ALSO
 
 * [flexprice](flexprice.md)	 - Flexprice CLI — usage-based billing from your terminal
+
